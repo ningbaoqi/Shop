@@ -3,11 +3,14 @@ package com.shop.ningbaoqi.shop;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.shop.ningbaoqi.ningbaoqi_core.activities.ProxyActivity;
+import com.shop.ningbaoqi.ningbaoqi_core.delegates.NingbaoqiDelegate;
+
+public class MainActivity extends ProxyActivity {
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public NingbaoqiDelegate setRootDelegate() {
+        return new ExampleDelegate();
     }
 }

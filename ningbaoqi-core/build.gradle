@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-
 android {
     compileSdkVersion 27
 
@@ -31,22 +30,33 @@ android {
 }
 
 dependencies {
-//    implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    //noinspection GradleCompatible
-//    implementation 'com.android.support:appcompat-v7:27.1.1'
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-//    implementation project(':ningbaoqi-annotations')
-//    implementation 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
-//    implementation 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
+
+    //    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //    //noinspection GradleCompatible
+
+    //    implementation 'com.android.support:appcompat-v7:27.1.1'
+
+    //    testImplementation 'junit:junit:4.12'
+
+    //    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+
+    //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //    implementation project(':ningbaoqi-annotations')
+
+    //    implementation 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
+
+    //    implementation 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
     api fileTree(include: ['*.jar'], dir: 'libs')
     compileOnly 'com.android.support:appcompat-v7:27.1.1'
     compileOnly 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     //Fragment
     api 'me.yokeyword:fragmentation:1.3.4'
+
     //瀛椾綋鍥炬爣
     api('com.joanzapata.iconify:android-iconify-ionicons:2.2.2', {
         exclude group: 'com.android.support'
@@ -55,30 +65,39 @@ dependencies {
         exclude group: 'com.android.support'
     })
     api 'com.blankj:utilcode:1.16.4'
+
     //缃戠粶渚濊禆
     api 'com.squareup.okio:okio:1.14.1'
     api 'com.squareup.okhttp3:okhttp:3.10.0'
     api 'com.squareup.retrofit2:retrofit:2.4.0'
     api 'com.squareup.retrofit2:converter-scalars:2.4.0'
+
     //Loading
     api 'com.wang.avi:library:2.1.3'
+
     //Json
     api 'com.alibaba:fastjson:1.1.68.android'
+
     //Log
     api 'com.orhanobut:logger:2.2.0'
+
     //寰俊渚濊禆锛堝寘鍚粺璁★級
     api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.1.4'
+
     //娌夋蹈寮忕姸鎬佹爮
     api('com.github.niorgai:StatusBarCompat:2.1.4', {
         exclude group: 'com.android.support'
     })
+
     //鏉冮檺
     implementation('com.github.hotchemi:permissionsdispatcher:3.2.0') {
         exclude module: 'support-v13'
     }
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.2.0'
+
     //鍓
     implementation 'com.github.yalantis:ucrop:2.2.2-native'
+
     //浜岀淮鐮�
     implementation('me.dm7.barcodescanner:zbar:1.9.8') {
         exclude group: 'com.android.support'
@@ -86,4 +105,11 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    //fragmention
+    implementation 'me.yokeyword:fragmentation:1.3.4'
+    implementation 'me.yokeyword:fragmentation-swipeback:1.3.4'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
 }
