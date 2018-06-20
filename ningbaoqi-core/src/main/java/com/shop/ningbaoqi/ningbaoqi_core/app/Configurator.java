@@ -1,13 +1,19 @@
 package com.shop.ningbaoqi.ningbaoqi_core.app;
 
+import com.joanzapata.iconify.IconFontDescriptor;
+import com.joanzapata.iconify.Iconify;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.WeakHashMap;
 
 /**
  * 配置文件的存储和获取
  */
 public class Configurator {
-    //当该map中的键值对不使用的时候，会及时的回收内存，可以最大限度的防止内存爆满
-    private static final WeakHashMap<String, Object> CONFIGS = new WeakHashMap<>();
+    private static final HashMap<String, Object> CONFIGS = new HashMap<>();
+    //字体库，封装
+    private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
 
     private Configurator() {
         CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
@@ -24,15 +30,13 @@ public class Configurator {
         return Holder.INSTANCE;
     }
 
-    /**
-     * 配置完成了
-     */
     public final void configure() {
+        initIcons();
         CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
     }
 
 
-    final WeakHashMap<String, Object> getConfigs() {
+    final HashMap<String, Object> getConfigs() {
         return CONFIGS;
     }
 
@@ -53,5 +57,22 @@ public class Configurator {
     final <T> T getConfiguration(Enum<ConfigType> key) {
         checkConfigaration();
         return (T) CONFIGS.get(key.name());
+    }
+
+    /**
+     * 初始化字体图标库
+     */
+    private void initIcons() {
+        if (ICONS.size() > 0) {
+            final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
+            for (int i = 1; i < ICONS.size(); i++) {
+                initializer.with(ICONS.get(i));
+            }
+        }
+    }
+
+    public final Configurator withIcon(IconFontDescriptor descriptor) {
+        ICONS.add(descriptor);
+        return this;
     }
 }

@@ -1,1 +1,1 @@
-include ':app', ':ningbaoqi-annotations', ':ningbaoqi-compiler', ':ningbaoqi-core', ':ningbaoqi-shop'
+include ':app', ':ningbaoqi-annotations', ':ningbaoqi-compiler', ':ningbaoqi-core', ':ningbaoqi-shop', ':ningbaoqi-ui'
