@@ -2,8 +2,8 @@ package com.shop.ningbaoqi.ningbaoqi_core.net.callback;
 
 import android.os.Handler;
 
-import com.shop.ningbaoqi.ningbaoqi_core.ui.LoaderStyle;
-import com.shop.ningbaoqi.ningbaoqi_core.ui.NingbaoqiLoader;
+import com.shop.ningbaoqi.ningbaoqi_core.ui.loader.LoaderStyle;
+import com.shop.ningbaoqi.ningbaoqi_core.ui.loader.NingbaoqiLoader;
 
 import retrofit2.Call;
 import retrofit2.Callback;

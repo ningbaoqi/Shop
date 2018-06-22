@@ -1,17 +1,15 @@
 package com.shop.ningbaoqi.ningbaoqi_core.net;
 
 import android.content.Context;
-import android.support.v4.app.NavUtils;
 
-import com.shop.ningbaoqi.ningbaoqi_core.R;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.IError;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.IFailure;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.IRequest;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.ISuccess;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.RequestCallbacks;
 import com.shop.ningbaoqi.ningbaoqi_core.net.download.DownLoadHandler;
-import com.shop.ningbaoqi.ningbaoqi_core.ui.LoaderStyle;
-import com.shop.ningbaoqi.ningbaoqi_core.ui.NingbaoqiLoader;
+import com.shop.ningbaoqi.ningbaoqi_core.ui.loader.LoaderStyle;
+import com.shop.ningbaoqi.ningbaoqi_core.ui.loader.NingbaoqiLoader;
 
 import java.io.File;
 import java.util.Map;
@@ -22,8 +20,6 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.http.Body;
-import retrofit2.http.PUT;
 
 /**
  * 网络框架：使用建造者模式

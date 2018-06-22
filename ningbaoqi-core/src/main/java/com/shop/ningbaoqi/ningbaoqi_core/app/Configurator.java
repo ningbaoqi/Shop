@@ -7,13 +7,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.WeakHashMap;
 
+import okhttp3.Interceptor;
+
 /**
  * 配置文件的存储和获取
  */
 public class Configurator {
-    private static final HashMap<String, Object> CONFIGS = new HashMap<>();
+    private static final HashMap<Object, Object> CONFIGS = new HashMap<>();
     //字体库，封装
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
+    private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
+
+    public final Configurator withInterceptor(Interceptor interceptor) {
+        INTERCEPTORS.add(interceptor);
+        CONFIGS.put(ConfigType.INTERCEPTOR, INTERCEPTORS);
+        return this;
+    }
+
+    public final Configurator withInterceptors(ArrayList<Interceptor> interceptors) {
+        INTERCEPTORS.addAll(interceptors);
+        CONFIGS.put(ConfigType.INTERCEPTOR, INTERCEPTORS);
+        return this;
+    }
+
 
     private Configurator() {
         CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
@@ -36,7 +52,7 @@ public class Configurator {
     }
 
 
-    final HashMap<String, Object> getConfigs() {
+    final HashMap<Object, Object> getConfigs() {
         return CONFIGS;
     }
 

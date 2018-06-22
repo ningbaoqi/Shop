@@ -7,5 +7,6 @@ public enum ConfigType {
     API_HOST,   //网络请求的域名
     APPLICATION_CONTEXT,    //全局的上下文
     CONFIG_READY,    //初始化是否完成
-    ICON
+    ICON,
+    INTERCEPTOR
 }

@@ -6,10 +6,9 @@ import com.shop.ningbaoqi.ningbaoqi_core.net.callback.IError;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.IFailure;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.IRequest;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.ISuccess;
-import com.shop.ningbaoqi.ningbaoqi_core.ui.LoaderStyle;
+import com.shop.ningbaoqi.ningbaoqi_core.ui.loader.LoaderStyle;
 
 import java.io.File;
-import java.util.Map;
 import java.util.WeakHashMap;
 
 import okhttp3.MediaType;
