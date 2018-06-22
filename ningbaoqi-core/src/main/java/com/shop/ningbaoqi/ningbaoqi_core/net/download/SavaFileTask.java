@@ -7,7 +7,7 @@ import android.os.AsyncTask;
 import com.shop.ningbaoqi.ningbaoqi_core.app.Latte;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.IRequest;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.ISuccess;
-import com.shop.ningbaoqi.ningbaoqi_core.util.FileUtil;
+import com.shop.ningbaoqi.ningbaoqi_core.util.file.FileUtil;
 
 import java.io.File;
 import java.io.InputStream;
