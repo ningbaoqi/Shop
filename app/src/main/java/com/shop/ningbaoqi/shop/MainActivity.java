@@ -1,10 +1,12 @@
 package com.shop.ningbaoqi.shop;
 
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.shop.ningbaoqi.ningbaoqi_core.activities.ProxyActivity;
+import com.shop.ningbaoqi.ningbaoqi_core.app.Latte;
 import com.shop.ningbaoqi.ningbaoqi_core.delegates.NingbaoqiDelegate;
 import com.shop.ningbaoqi.ningbaoqi_core.ui.launcher.ILauncherListener;
 import com.shop.ningbaoqi.ningbaoqi_core.ui.launcher.OnLauncherFinishTag;
@@ -15,7 +17,11 @@ import com.shop.ningbaoqi.ningbaoqi_shop.sign.SignInDelegate;
 import com.shop.ningbaoqi.ningbaoqi_shop.sign.SignUpDelegate;
 
 public class MainActivity extends ProxyActivity implements ISignListener, ILauncherListener {
-
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Latte.getConfigurator().withActivity(this);
+    }
 
     @Override
     public NingbaoqiDelegate setRootDelegate() {

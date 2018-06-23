@@ -1,5 +1,8 @@
 package com.shop.ningbaoqi.ningbaoqi_core.app;
 
+import android.app.Activity;
+import android.content.Context;
+
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -8,6 +11,7 @@ import java.util.HashMap;
 import java.util.WeakHashMap;
 
 import okhttp3.Interceptor;
+import retrofit2.http.PUT;
 
 /**
  * 配置文件的存储和获取
@@ -89,6 +93,21 @@ public class Configurator {
 
     public final Configurator withIcon(IconFontDescriptor descriptor) {
         ICONS.add(descriptor);
+        return this;
+    }
+
+    public final Configurator withWeChatAppId(String appId) {
+        CONFIGS.put(ConfigType.WE_CHAT_APP_ID, appId);
+        return this;
+    }
+
+    public final Configurator withWeChatAppSecret(String appSecret) {
+        CONFIGS.put(ConfigType.WE_CHAT_APP_SECRET, appSecret);
+        return this;
+    }
+
+    public final Configurator withActivity(Activity activity) {
+        CONFIGS.put(ConfigType.ACTIVITY, activity);
         return this;
     }
 }

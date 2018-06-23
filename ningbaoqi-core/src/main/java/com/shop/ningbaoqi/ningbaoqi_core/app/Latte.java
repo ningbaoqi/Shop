@@ -1,5 +1,6 @@
 package com.shop.ningbaoqi.ningbaoqi_core.app;
 
+import android.app.Application;
 import android.content.Context;
 
 import java.util.HashMap;
@@ -19,8 +20,17 @@ public final class Latte {
         return Configurator.getInstance().getConfigs();
     }
 
-    public static Context getApplicationContext() {
-        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
+
+    public static Configurator getConfigurator() {
+        return Configurator.getInstance();
+    }
+
+    public static <T> T getConfiguration(Object key) {
+        return getConfigurator().getConfiguration((Enum<ConfigType>) key);
+    }
+
+    public static Application getApplicationContext() {
+        return getConfiguration(ConfigType.APPLICATION_CONTEXT);
     }
 
 }

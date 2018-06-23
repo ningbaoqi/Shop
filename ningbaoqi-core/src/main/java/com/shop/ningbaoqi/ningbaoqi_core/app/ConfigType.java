@@ -8,5 +8,8 @@ public enum ConfigType {
     APPLICATION_CONTEXT,    //全局的上下文
     CONFIG_READY,    //初始化是否完成
     ICON,
-    INTERCEPTOR
+    INTERCEPTOR,
+    WE_CHAT_APP_ID,
+    WE_CHAT_APP_SECRET,
+    ACTIVITY
 }
