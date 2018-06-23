@@ -1,11 +1,16 @@
 package com.shop.ningbaoqi.ningbaoqi_shop.launcher;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
+import com.shop.ningbaoqi.ningbaoqi_core.app.AccountManager;
+import com.shop.ningbaoqi.ningbaoqi_core.app.IUserChecker;
 import com.shop.ningbaoqi.ningbaoqi_core.delegates.NingbaoqiDelegate;
+import com.shop.ningbaoqi.ningbaoqi_core.ui.launcher.ILauncherListener;
+import com.shop.ningbaoqi.ningbaoqi_core.ui.launcher.OnLauncherFinishTag;
 import com.shop.ningbaoqi.ningbaoqi_core.ui.launcher.ScrollLauncherTag;
 import com.shop.ningbaoqi.ningbaoqi_core.util.storage.NingbaoqiPreference;
 import com.shop.ningbaoqi.ningbaoqi_core.util.timer.BaseTimerTask;
@@ -25,6 +30,15 @@ public class LauncherDelegate extends NingbaoqiDelegate implements ITimerListene
     AppCompatTextView mTvTimer = null;
     private Timer mTimer = null;
     private int mCount = 5;
+    private ILauncherListener mILauncherListener = null;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ILauncherListener) {
+            mILauncherListener = (ILauncherListener) context;
+        }
+    }
 
     @OnClick(R2.id.tv_launcher_timer)
     void onClickTimerView() {
@@ -59,6 +73,21 @@ public class LauncherDelegate extends NingbaoqiDelegate implements ITimerListene
             start(new LauncherScrollDelegate(), SINGLETASK);
         } else {
             //检查用户是否登陆了APP
+            AccountManager.checkAccount(new IUserChecker() {
+                @Override
+                public void onSignIn() {
+                    if (mILauncherListener != null) {
+                        mILauncherListener.onLauncherFinish(OnLauncherFinishTag.SIGNED);
+                    }
+                }
+
+                @Override
+                public void onNotSignIn() {
+                    if (mILauncherListener != null) {
+                        mILauncherListener.onLauncherFinish(OnLauncherFinishTag.NOT_SIGNED);
+                    }
+                }
+            });
         }
     }
 

@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao'
+
 android {
     compileSdkVersion 27
 
@@ -60,4 +62,7 @@ dependencies {
     implementation project(':ningbaoqi-core')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     implementation 'com.bigkoo:convenientbanner:2.0.5'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'org.greenrobot:greendao-generator:3.2.2'
+    implementation 'org.greenrobot:greendao:3.2.2'
 }

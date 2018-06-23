@@ -21,12 +21,12 @@ public class ExampleDelegate extends NingbaoqiDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        testRestClient();
+        //testRestClient();
     }
 
     private void testRestClient() {
         RestClient.builder()
-                .url("http://127.0.0.1/index")
+                .url("http://192.168.1.32:8080/RestServer/RestServer/api/index.php")
                 .loader(getContext())
                 .success(new ISuccess() {
                     @Override
