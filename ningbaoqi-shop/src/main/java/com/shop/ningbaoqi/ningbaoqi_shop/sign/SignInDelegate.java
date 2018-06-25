@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.shop.ningbaoqi.ningbaoqi_core.delegates.NingbaoqiDelegate;
 import com.shop.ningbaoqi.ningbaoqi_core.net.RestClient;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.ISuccess;
+import com.shop.ningbaoqi.ningbaoqi_core.wechat.NingbaoqiWeChat;
+import com.shop.ningbaoqi.ningbaoqi_core.wechat.callbacks.IWeChatSignInCallback;
 import com.shop.ningbaoqi.ningbaoqi_shop.R;
 import com.shop.ningbaoqi.ningbaoqi_shop.R2;
 
@@ -49,7 +51,12 @@ public class SignInDelegate extends NingbaoqiDelegate {
 
     @OnClick(R2.id.icon_sign_in_wechat)
     void onClickWeChat() {
-
+        NingbaoqiWeChat.getInstance().onSignInSuccess(new IWeChatSignInCallback() {
+            @Override
+            public void onSignInSuccess(String userInfo) {
+                Toast.makeText(getContext(), "" + userInfo, Toast.LENGTH_LONG).show();
+            }
+        }).signIn();
     }
 
     @OnClick(R2.id.tv_link_sign_up)

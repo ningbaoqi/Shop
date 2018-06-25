@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
+import com.shop.ningbaoqi.ningbaoqi_core.util.log.LogUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,7 +68,8 @@ public class Configurator {
 
 
     private void checkConfigaration() {
-        final boolean isReady = (boolean) CONFIGS.get(CONFIGS.get(ConfigType.CONFIG_READY.name()));
+        final boolean isReady = (boolean) CONFIGS.get(ConfigType.CONFIG_READY.name());
+        LogUtils.d("nbq", isReady + "");
         if (!isReady) {
             throw new RuntimeException("Configuartion is not ready , call configure");
         }

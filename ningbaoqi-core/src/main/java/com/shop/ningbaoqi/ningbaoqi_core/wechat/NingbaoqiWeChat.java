@@ -4,14 +4,16 @@ import android.app.Activity;
 
 import com.shop.ningbaoqi.ningbaoqi_core.app.ConfigType;
 import com.shop.ningbaoqi.ningbaoqi_core.app.Latte;
+import com.shop.ningbaoqi.ningbaoqi_core.wechat.callbacks.IWeChatSignInCallback;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 public class NingbaoqiWeChat {
-    static final String APP_ID = Latte.getConfiguration(ConfigType.WE_CHAT_APP_ID);
-    static final String APP_SECRET = Latte.getConfiguration(ConfigType.WE_CHAT_APP_SECRET);
+    public static final String APP_ID = Latte.getConfiguration(ConfigType.WE_CHAT_APP_ID);
+    public static final String APP_SECRET = Latte.getConfiguration(ConfigType.WE_CHAT_APP_SECRET);
     private final IWXAPI WXAPI;
+    private IWeChatSignInCallback callback = null;
 
     private NingbaoqiWeChat() {
         final Activity activity = Latte.getConfiguration(ConfigType.ACTIVITY);
@@ -30,6 +32,14 @@ public class NingbaoqiWeChat {
         WXAPI.sendReq(req);
     }
 
+    public NingbaoqiWeChat onSignInSuccess(IWeChatSignInCallback callback) {
+        this.callback = callback;
+        return this;
+    }
+
+    public IWeChatSignInCallback getCallback() {
+        return callback;
+    }
 
     private static final class Holder {
         private static final NingbaoqiWeChat INSTANCE = new NingbaoqiWeChat();
