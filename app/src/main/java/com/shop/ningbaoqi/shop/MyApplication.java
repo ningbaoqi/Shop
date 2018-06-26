@@ -17,7 +17,7 @@ public class MyApplication extends Application {
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontModule())
                 .withApiHost("http://127.0.0.1/")
-                .withInterceptor(new DebugInterceptor("asd", R.raw.test))
+                .withInterceptor(new DebugInterceptor("test", R.raw.test))
                 .configure();
         initStetho();
         DatabaseManager.getInstance().init(this);

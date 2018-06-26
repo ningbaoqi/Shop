@@ -2,6 +2,7 @@ package com.shop.ningbaoqi.ningbaoqi_core.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Handler;
 
 import java.util.HashMap;
 import java.util.WeakHashMap;
@@ -33,4 +34,7 @@ public final class Latte {
         return getConfiguration(ConfigType.APPLICATION_CONTEXT);
     }
 
+    public static Handler getHandler() {
+        return getConfiguration(ConfigType.HANDLER);
+    }
 }

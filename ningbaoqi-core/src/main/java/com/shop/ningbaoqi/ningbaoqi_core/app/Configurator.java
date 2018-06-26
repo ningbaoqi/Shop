@@ -2,6 +2,7 @@ package com.shop.ningbaoqi.ningbaoqi_core.app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
@@ -22,6 +23,7 @@ public class Configurator {
     //字体库，封装
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
     private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
+    private static final Handler HANDLER = new Handler();
 
     public final Configurator withInterceptor(Interceptor interceptor) {
         INTERCEPTORS.add(interceptor);
@@ -38,6 +40,7 @@ public class Configurator {
 
     private Configurator() {
         CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
+        CONFIGS.put(ConfigType.HANDLER.name(), HANDLER);
     }
 
     /**

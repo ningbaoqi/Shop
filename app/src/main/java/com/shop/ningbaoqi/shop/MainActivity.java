@@ -12,6 +12,7 @@ import com.shop.ningbaoqi.ningbaoqi_core.ui.launcher.ILauncherListener;
 import com.shop.ningbaoqi.ningbaoqi_core.ui.launcher.OnLauncherFinishTag;
 import com.shop.ningbaoqi.ningbaoqi_shop.launcher.LauncherDelegate;
 import com.shop.ningbaoqi.ningbaoqi_shop.launcher.LauncherScrollDelegate;
+import com.shop.ningbaoqi.ningbaoqi_shop.main.ShopBottomDelegate;
 import com.shop.ningbaoqi.ningbaoqi_shop.sign.ISignListener;
 import com.shop.ningbaoqi.ningbaoqi_shop.sign.SignInDelegate;
 import com.shop.ningbaoqi.ningbaoqi_shop.sign.SignUpDelegate;
@@ -43,7 +44,7 @@ public class MainActivity extends ProxyActivity implements ISignListener, ILaunc
         switch (tag) {
             case SIGNED:
                 Toast.makeText(this, "启动结束，用户登陆了", Toast.LENGTH_LONG).show();
-                startWithPop(new ExampleDelegate());
+                startWithPop(new ShopBottomDelegate());
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束，用户没登陆", Toast.LENGTH_LONG).show();
