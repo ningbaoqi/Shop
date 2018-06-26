@@ -8,29 +8,33 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.shop.ningbaoqi.ningbaoqi_core.R;
 import com.shop.ningbaoqi.ningbaoqi_core.ui.banner.BannerCreator;
+import com.shop.ningbaoqi.ningbaoqi_core.util.log.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultipleRecyclerAdater extends BaseMultiItemQuickAdapter<MultipleItemEntity, MultipleViewHolder> implements BaseQuickAdapter.SpanSizeLookup, OnItemClickListener {
+public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleItemEntity, MultipleViewHolder> implements BaseQuickAdapter.SpanSizeLookup, OnItemClickListener {
     private boolean mIsInitBanner = false;//确保初始化一次banner，防止重复ITEM加载
 
+    //设置图片加载策略
+    private static final RequestOptions RECYCLER_OPTIONS = new RequestOptions().centerCrop().diskCacheStrategy(DiskCacheStrategy.ALL).dontAnimate();
 
-    protected MultipleRecyclerAdater(List<MultipleItemEntity> data) {
+    protected MultipleRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
         init();
     }
 
-    public static MultipleRecyclerAdater create(List<MultipleItemEntity> data) {
-        return new MultipleRecyclerAdater(data);
+    public static MultipleRecyclerAdapter create(List<MultipleItemEntity> data) {
+        return new MultipleRecyclerAdapter(data);
     }
 
-    public static MultipleRecyclerAdater create(DataConverter data) {
-        return new MultipleRecyclerAdater(data.convert());
+    public static MultipleRecyclerAdapter create(DataConverter data) {
+        return new MultipleRecyclerAdapter(data.convert());
     }
 
     private void init() {
@@ -63,12 +67,13 @@ public class MultipleRecyclerAdater extends BaseMultiItemQuickAdapter<MultipleIt
                 break;
             case ItemType.IMAGE:
                 imageUrl = entity.getField(MultipleFields.IMAGE_URL);
-                Glide.with(mContext).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.ALL).dontAnimate().centerCrop().into((ImageView) holder.getView(R.id.img_single));
+                LogUtils.d("nbq", "----------" + imageUrl);
+                Glide.with(mContext).load(imageUrl).apply(RECYCLER_OPTIONS).into((ImageView) holder.getView(R.id.img_single));
                 break;
             case ItemType.TEXT_IMAGE:
                 text = entity.getField(MultipleFields.TEXT);
                 imageUrl = entity.getField(MultipleFields.IMAGE_URL);
-                Glide.with(mContext).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.ALL).dontAnimate().centerCrop().into((ImageView) holder.getView(R.id.img_multiple));
+                Glide.with(mContext).load(imageUrl).apply(RECYCLER_OPTIONS).into((ImageView) holder.getView(R.id.img_multiple));
                 holder.setText(R.id.tv_multiple, text);
                 break;
             case ItemType.BANNER:

@@ -17,11 +17,15 @@ import com.shop.ningbaoqi.ningbaoqi_shop.sign.ISignListener;
 import com.shop.ningbaoqi.ningbaoqi_shop.sign.SignInDelegate;
 import com.shop.ningbaoqi.ningbaoqi_shop.sign.SignUpDelegate;
 
+import qiu.niorgai.StatusBarCompat;
+
 public class MainActivity extends ProxyActivity implements ISignListener, ILauncherListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Latte.getConfigurator().withActivity(this);
+
+        StatusBarCompat.translucentStatusBar(this, true);
     }
 
     @Override

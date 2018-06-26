@@ -29,7 +29,7 @@ public class IndexDataConverter extends DataConverter {
                 type = ItemType.TEXT;
             } else if (imageUrl != null && text == null) {
                 type = ItemType.IMAGE;
-            } else if (imageUrl != null && text != null) {
+            } else if (imageUrl != null) {
                 type = ItemType.TEXT_IMAGE;
             } else if (banners != null) {
                 type = ItemType.BANNER;
