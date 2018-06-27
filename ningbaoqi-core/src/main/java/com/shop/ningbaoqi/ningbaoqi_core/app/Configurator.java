@@ -6,12 +6,15 @@ import android.os.Handler;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
+import com.shop.ningbaoqi.ningbaoqi_core.delegates.web.event.Event;
+import com.shop.ningbaoqi.ningbaoqi_core.delegates.web.event.EventManager;
 import com.shop.ningbaoqi.ningbaoqi_core.util.log.LogUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.WeakHashMap;
 
+import io.reactivex.annotations.NonNull;
 import okhttp3.Interceptor;
 import retrofit2.http.PUT;
 
@@ -113,6 +116,17 @@ public class Configurator {
 
     public final Configurator withActivity(Activity activity) {
         CONFIGS.put(ConfigType.ACTIVITY, activity);
+        return this;
+    }
+
+    public Configurator withJavascriptInterface(@NonNull String name) {
+        CONFIGS.put(ConfigType.JAVASCRIPT_INTERFACE, name);
+        return this;
+    }
+
+    public Configurator withWebEvent(@NonNull String name, @NonNull Event event) {
+        final EventManager manager = EventManager.getInstance();
+        manager.addEvent(name, event);
         return this;
     }
 }

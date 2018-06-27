@@ -5,6 +5,7 @@ import android.app.Application;
 import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.shop.ningbaoqi.ningbaoqi_core.app.Latte;
+import com.shop.ningbaoqi.shop.event.TestEvent;
 import com.shop.ningbaoqi.ningbaoqi_core.net.interceptors.DebugInterceptor;
 import com.shop.ningbaoqi.ningbaoqi_shop.database.DatabaseManager;
 import com.shop.ningbaoqi.ningbaoqi_shop.icon.FontModule;
@@ -18,6 +19,8 @@ public class MyApplication extends Application {
                 .withIcon(new FontModule())
                 .withApiHost("http://127.0.0.1/")
                 .withInterceptor(new DebugInterceptor("test", R.raw.test))
+                .withJavascriptInterface("Latte")
+                .withWebEvent("test", new TestEvent())
                 .configure();
         initStetho();
         DatabaseManager.getInstance().init(this);

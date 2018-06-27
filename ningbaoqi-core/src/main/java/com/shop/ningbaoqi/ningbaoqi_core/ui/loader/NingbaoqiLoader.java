@@ -28,7 +28,7 @@ public class NingbaoqiLoader {
         int deviceHeight = DimenUtil.getScreenHeight();
         final Window dialogWindow = dialog.getWindow();
         if (dialogWindow != null) {
-            WindowManager.LayoutParams params = dialogWindow.getAttributes();
+            final WindowManager.LayoutParams params = dialogWindow.getAttributes();
             params.width = deviceWidth / LOADER_SIZE_SCALE;
             params.height = deviceHeight / LOADER_SIZE_SCALE;
             //params.height = params.height + deviceHeight / LOADER_SIZE_SCALE;
