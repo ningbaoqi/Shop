@@ -7,6 +7,14 @@ import android.webkit.WebView;
 public class WebViewInitializer {
     public WebView createWebView(WebView webView) {
         WebView.setWebContentsDebuggingEnabled(true);
+//        //cookie
+//        final CookieManager cookieManager = CookieManager.getInstance();
+//        cookieManager.setAcceptCookie(true);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            cookieManager.setAcceptThirdPartyCookies(webView, true);
+//        }
+//        CookieManager.setAcceptFileSchemeCookies(true);
+
         //不能横向滚动
         webView.setHorizontalScrollBarEnabled(false);
         //不能纵向滚动

@@ -20,6 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import butterknife.BindView;
+import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 
 public abstract class BaseBottomDelegate extends NingbaoqiDelegate implements View.OnClickListener {
@@ -84,8 +85,8 @@ public abstract class BaseBottomDelegate extends NingbaoqiDelegate implements Vi
             }
         }
 
-        final SupportFragment[] delegateArray = ITEM_DDELEGATES.toArray(new SupportFragment[size]);
-        loadMultipleRootFragment(R.id.bottom_bar_delegate_container, mIndexDelegate, delegateArray);
+        final ISupportFragment[] delegateArray = ITEM_DDELEGATES.toArray(new ISupportFragment[size]);
+        getSupportDelegate().loadMultipleRootFragment(R.id.bottom_bar_delegate_container, mIndexDelegate, delegateArray);
     }
 
     private void resetColor() {
@@ -108,8 +109,7 @@ public abstract class BaseBottomDelegate extends NingbaoqiDelegate implements Vi
         itemIcon.setTextColor(mClickedColor);
         final AppCompatTextView itemTitle = (AppCompatTextView) item.getChildAt(1);
         itemTitle.setTextColor(mClickedColor);
-
-        showHideFragment(ITEM_DDELEGATES.get(tag), ITEM_DDELEGATES.get(mCurrentDelegate));
+        getSupportDelegate().showHideFragment(ITEM_DDELEGATES.get(tag), ITEM_DDELEGATES.get(mCurrentDelegate));
         //注意先后顺序
         mCurrentDelegate = tag;
     }

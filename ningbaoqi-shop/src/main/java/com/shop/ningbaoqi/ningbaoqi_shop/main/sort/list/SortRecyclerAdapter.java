@@ -17,6 +17,8 @@ import com.shop.ningbaoqi.ningbaoqi_shop.main.sort.content.ContentDelegate;
 
 import java.util.List;
 
+import me.yokeyword.fragmentation.SupportHelper;
+
 public class SortRecyclerAdapter extends MultipleRecyclerAdapter {
     private int mPrePosition = 0;
     private final SortDelegate DELEGATE;
@@ -79,9 +81,9 @@ public class SortRecyclerAdapter extends MultipleRecyclerAdapter {
     }
 
     private void switchContent(ContentDelegate delegate) {
-        final NingbaoqiDelegate contentDelegate = DELEGATE.findChildFragment(ContentDelegate.class);
+        final NingbaoqiDelegate contentDelegate = SupportHelper.findFragment(DELEGATE.getChildFragmentManager(), ContentDelegate.class);
         if (contentDelegate != null) {
-            contentDelegate.replaceFragment(delegate, false);
+            contentDelegate.getSupportDelegate().replaceFragment(delegate, false);
         }
     }
 }
