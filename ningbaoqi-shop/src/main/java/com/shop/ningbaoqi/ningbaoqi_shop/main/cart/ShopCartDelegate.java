@@ -13,19 +13,18 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.blankj.utilcode.util.LogUtils;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.shop.ningbaoqi.ningbaoqi_core.delegates.bottom.BottomItemDelegate;
 import com.shop.ningbaoqi.ningbaoqi_core.net.RestClient;
 import com.shop.ningbaoqi.ningbaoqi_core.net.callback.ISuccess;
 import com.shop.ningbaoqi.ningbaoqi_core.ui.recycler.MultipleItemEntity;
+import com.shop.ningbaoqi.ningbaoqi_core.util.log.LogUtils;
 import com.shop.ningbaoqi.ningbaoqi_shop.R;
 import com.shop.ningbaoqi.ningbaoqi_shop.R2;
 import com.shop.ningbaoqi.ningbaoqi_shop.pay.FastPay;
 import com.shop.ningbaoqi.ningbaoqi_shop.pay.IAlPayResultListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.WeakHashMap;
 

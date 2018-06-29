@@ -4,8 +4,6 @@ apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 27
 
-
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 27
@@ -65,7 +63,6 @@ dependencies {
     api('com.joanzapata.iconify:android-iconify-fontawesome:2.2.2', {
         exclude group: 'com.android.support'
     })
-    api 'com.blankj:utilcode:1.16.4'
 
     //缃戠粶渚濊禆
     api 'com.squareup.okio:okio:1.14.1'
@@ -89,15 +86,6 @@ dependencies {
     api('com.github.niorgai:StatusBarCompat:2.1.4', {
         exclude group: 'com.android.support'
     })
-
-    //鏉冮檺
-    implementation('com.github.hotchemi:permissionsdispatcher:3.2.0') {
-        exclude module: 'support-v13'
-    }
-    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.2.0'
-
-    //鍓
-    implementation 'com.github.yalantis:ucrop:2.2.2-native'
 
     //浜岀淮鐮�
     implementation('me.dm7.barcodescanner:zbar:1.9.8') {
@@ -126,11 +114,6 @@ dependencies {
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     implementation 'com.android.support:design:27.1.1'
-//    implementation 'com.github.bumptech.glide:glide:3.7.0'
-
-    //    implementation 'com.github.bumptech.glide:okhttp3-integration:4.2.0@aar'
-
-    //    annotationProcessor 'com.github.bumptech.glide:compiler:3.7.0'
     implementation 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32'
 
     implementation 'com.github.bumptech.glide:glide:4.2.0'
@@ -147,5 +130,11 @@ dependencies {
     //google autovalue provided这个库在编译的时候会使用到，但是在apk打包后是被废弃的,只是在编译的时候使用它
     compileOnly "com.google.auto.value:auto-value:1.2"
     annotationProcessor "com.google.auto.value:auto-value:1.2"
+//动态权限处理
+    implementation 'com.github.hotchemi:permissionsdispatcher:3.0.1'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1'
 
+    //工具包
+    implementation 'com.blankj:utilcode:1.9.3'
+    implementation 'com.github.yalantis:ucrop:2.2.2-native'
 }
