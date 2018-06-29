@@ -13,20 +13,41 @@ import com.shop.ningbaoqi.ningbaoqi_shop.R2;
 import com.shop.ningbaoqi.ningbaoqi_shop.main.personal.list.ListAdapter;
 import com.shop.ningbaoqi.ningbaoqi_shop.main.personal.list.ListBean;
 import com.shop.ningbaoqi.ningbaoqi_shop.main.personal.list.ListItemType;
+import com.shop.ningbaoqi.ningbaoqi_shop.main.personal.order.OrderListDelegate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class PersonalDelegate extends BottomItemDelegate {
-
+    public static final String ORDER_TYPE = "ORDER_TYPE";
+    private Bundle mArgs = null;
     @BindView(R2.id.rv_personal_setting)
     RecyclerView mRvSettings = null;
+
+    @OnClick(R2.id.tv_all_order)
+    void onClickAllOrder() {
+        mArgs.putString(ORDER_TYPE, "all");
+        startOrderListByType();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mArgs = new Bundle();
+    }
 
     @Override
     public Object setLayout() {
         return R.layout.delegate_personal;
+    }
+
+    private void startOrderListByType() {
+        OrderListDelegate delegate = new OrderListDelegate();
+        delegate.setArguments(mArgs);
+        getParentDelegate().getSupportDelegate().start(delegate);
     }
 
     @Override
