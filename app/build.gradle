@@ -63,7 +63,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':ningbaoqi-shop')
+    api project(':ningbaoqi-shop')
     implementation 'cn.jiguang.sdk:jpush:3.1.3'
     implementation 'cn.jiguang.sdk:jcore:1.2.1'
     compileOnly project(':ningbaoqi-annotations')

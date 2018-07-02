@@ -59,7 +59,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-    implementation project(':ningbaoqi-core')
+    api project(':ningbaoqi-core')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     implementation 'com.bigkoo:convenientbanner:2.0.5'
     implementation 'com.android.support:design:27.1.1'
@@ -72,4 +72,11 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
     implementation 'com.choices.divider:RecyclerView_Divider:1.0.0'
     implementation files('libs/alipaySdk-20170922.jar')
+    implementation 'com.github.yalantis:ucrop:2.2.2-native'
+    //动态权限处理
+    implementation 'com.github.hotchemi:permissionsdispatcher:3.0.1'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1'
+
+    //工具包
+//    implementation 'com.blankj:utilcode:1.9.3'
 }
