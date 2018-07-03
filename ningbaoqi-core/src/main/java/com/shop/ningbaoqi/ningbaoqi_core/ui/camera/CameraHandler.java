@@ -84,15 +84,18 @@ public class CameraHandler implements View.OnClickListener {
         final String currentPhotoName = getPhotoName();
         final Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         final File tempFile = new File(FileUtil.CAMERA_PHOTO_DIR, currentPhotoName);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {//如果是7.0以上的系统
+
+        //兼容7.0及以上的写法
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             final ContentValues contentValues = new ContentValues(1);
-            contentValues.put(MediaStore.Images.Media.DATA, tempFile.getParent());
+            contentValues.put(MediaStore.Images.Media.DATA, tempFile.getPath());
             final Uri uri = DELEGATE.getContext().getContentResolver().insert(MediaStore.Images.Media.INTERNAL_CONTENT_URI, contentValues);
             Log.d("nbq", uri + "");
-            //需要将路径转换为实际路径
+            //需要讲Uri路径转化为实际路径
             final File realFile = FileUtils.getFileByPath(FileUtil.getRealFilePath(DELEGATE.getContext(), uri));
             Log.d("nbq", realFile + "");
             final Uri realUri = Uri.fromFile(realFile);
+            Log.d("nbq", realUri + "");
             CameraImageBean.getInstance().setPath(realUri);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
         } else {

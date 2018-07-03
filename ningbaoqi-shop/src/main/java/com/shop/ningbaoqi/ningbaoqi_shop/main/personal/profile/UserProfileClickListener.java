@@ -2,6 +2,7 @@ package com.shop.ningbaoqi.ningbaoqi_shop.main.personal.profile;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -9,6 +10,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.SimpleClickListener;
 import com.shop.ningbaoqi.ningbaoqi_core.delegates.NingbaoqiDelegate;
 import com.shop.ningbaoqi.ningbaoqi_core.ui.date.DateDialogUtil;
+import com.shop.ningbaoqi.ningbaoqi_core.util.callback.CallBackManager;
+import com.shop.ningbaoqi.ningbaoqi_core.util.callback.CallbackType;
+import com.shop.ningbaoqi.ningbaoqi_core.util.callback.IGlobalCallback;
 import com.shop.ningbaoqi.ningbaoqi_shop.R;
 import com.shop.ningbaoqi.ningbaoqi_shop.main.personal.list.ListBean;
 
@@ -26,6 +30,12 @@ public class UserProfileClickListener extends SimpleClickListener {
         final int id = bean.getmId();
         switch (id) {
             case 1:
+                CallBackManager.getInstance().addCallback(CallbackType.ON_CROP, new IGlobalCallback() {
+                    @Override
+                    public void executeCallback(Object args) {
+                        Log.d("nbq", "args" + args);
+                    }
+                });
                 //开启照相机或选择图片
                 DELEGATE.startCameraWithCheck();
                 break;

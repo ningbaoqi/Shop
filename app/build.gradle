@@ -75,4 +75,5 @@ dependencies {
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     implementation 'com.github.hotchemi:permissionsdispatcher:3.0.1'
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1'
+    implementation 'com.github.yalantis:ucrop:2.2.2-native'
 }
