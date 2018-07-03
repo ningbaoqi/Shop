@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 
+import com.blankj.utilcode.util.Utils;
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 import com.shop.ningbaoqi.ningbaoqi_core.delegates.web.event.Event;
@@ -60,6 +61,7 @@ public class Configurator {
     public final void configure() {
         initIcons();
         CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
+        Utils.init(Latte.getApplicationContext());
     }
 
 

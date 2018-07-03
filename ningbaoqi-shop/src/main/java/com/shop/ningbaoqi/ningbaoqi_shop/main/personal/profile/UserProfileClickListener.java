@@ -27,7 +27,7 @@ public class UserProfileClickListener extends SimpleClickListener {
         switch (id) {
             case 1:
                 //开启照相机或选择图片
-                //DELEGATE.startCameraWithCheck();
+                DELEGATE.startCameraWithCheck();
                 break;
             case 2:
                 final NingbaoqiDelegate nameDelegate = bean.getmDelegate();

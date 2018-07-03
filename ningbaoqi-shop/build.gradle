@@ -72,4 +72,12 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
     implementation 'com.choices.divider:RecyclerView_Divider:1.0.0'
     implementation files('libs/alipaySdk-20170922.jar')
+    implementation 'com.github.hotchemi:permissionsdispatcher:3.0.1'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1'
+//    implementation("com.github.hotchemi:permissionsdispatcher:3.3.1") {
+//        // if you don't use android.app.Fragment you can exclude support for them
+//        exclude module: "support-v13"
+//    }
+//    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.3.1"
+
 }
